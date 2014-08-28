@@ -1,0 +1,25 @@
+<h1>Hello Plunker!</h1>
+    <div id="quiz" ng-show="!quizComplete">
+      <form>
+
+      {{ question.questionText }}
+                              <ul>
+          <li ng-repeat="answer in question.possibleAnswers">
+            <input type="radio" name="possibleAnswers" ng-model="formdata.chosenAnswer" value="{{answer.answerid}}" />
+
+
+{{answer.answerText + " " + answer.answerid}}</li>
+        </ul>
+        <input type="button" ng-click="submitAnswer()" value="Submit" />
+
+
+{{ formdata }} {{ answerResponse }}
+
+                              <input type="button" ng-click="nextQuestion()" value="Next" ng-show="showNext" />
+        <input type="button" ng-click="showResults()" value="Finish" ng-show="showFinish" />
+      </form>
+    </div>
+    <div id="results" ng-show="quizComplete">
+    Results go here!
+  </div>
+    <input type="button" ng-click="restartQuiz()" value="Restart" />
