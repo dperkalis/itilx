@@ -1,7 +1,7 @@
 <h1>Hello Plunker!</h1>
     <div id="quiz" ng-show="!quizComplete">
       <form>
-
+      {{ question.currentQuestionNo}} || {{ question.numberOfQuestions }}
       {{ question.questionText }}
                               <ul>
           <li ng-repeat="answer in question.possibleAnswers">
@@ -10,12 +10,12 @@
 
 {{answer.answerText + " " + answer.answerid}}</li>
         </ul>
-        <input type="button" ng-click="submitAnswer()" value="Submit" />
+        <input type="button" ng-click="submitAnswer()" value="Submit" ng-hide="showNext" />
 
 
 {{ formdata }} {{ answerResponse }}
 
-                              <input type="button" ng-click="nextQuestion()" value="Next" ng-show="showNext" />
+                              <input type="button" ng-click="getQuestion()" value="Next" ng-show="showNext" />
         <input type="button" ng-click="showResults()" value="Finish" ng-show="showFinish" />
       </form>
     </div>

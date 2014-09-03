@@ -6,9 +6,13 @@ var itilxApp = angular.module('itilxApp', [
 itilxApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/quiz', {
+      when('/quiz/:quizId', {
         templateUrl: 'views/quiz.html',
         controller: 'quizCtrl'
+      }).
+      when('/admin/:quizId', {
+        templateUrl: 'views/admin.html',
+        controller: 'adminCtrl'
       }).
       otherwise({
         redirectTo: '/error'
