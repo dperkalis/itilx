@@ -10,16 +10,6 @@
 
         var getQuestions = function(quizId) {
             return storageSvc.query("quizzes", "id", {quizId: quizId});
-
-            var quizTable = storageSvc.getEntity("quizzes");
-
-            var query = quizTable.select("id").where({
-                quizId: quizId
-            }).read().done(function(results) {
-                return results;
-            }, function(err) {
-                return err;
-            });
         };
 
         return {

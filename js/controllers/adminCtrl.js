@@ -25,7 +25,6 @@
 			};
 
 			$scope.questions = adminSvc.getQuestions(quizId);
-
 		}
 	]);
 })();
