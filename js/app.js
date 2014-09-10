@@ -20,3 +20,11 @@ itilxApp.config(['$routeProvider',
   }]);
 
 var itilxControllers = angular.module('itilxControllers', []);
+
+
+var globalSettings = {
+    apiUrl : "https://packagedproperly.azure-mobile.net/",
+    apiKey : "ZHcuNczlwvrFBzaocBYfcyzqWMSKYx50"
+}
+
+itilxApp.value('globalSettings', globalSettings);

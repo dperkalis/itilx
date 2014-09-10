@@ -1,39 +1,30 @@
 (function() {
-  var adminSvc = function() {
 
-    var getClient = function() {
-      return new WindowsAzure.MobileServiceClient(
-        "https://packagedproperly.azure-mobile.net/",
-        "ZHcuNczlwvrFBzaocBYfcyzqWMSKYx50"
-      );
-    };
+    var module = angular.module("itilxApp");
+    module.factory("adminSvc", ["storageSvc", function (storageSvc) {
 
-    var addQuestion = function(question) {
-      var client = getClient();
-      client.getTable("quizzes").insert(question);
-    };
 
-    var getQuestions = function(quizId) {
-      var client = getClient();
+        var addQuestion = function(question) {
+            storageSvc.insert("quizzes", question);
+        };
 
-      quizTable = client.getTable("quizzes");
-     
-      var query = quizTable.select("id").where({
-        quizId: quizId
-      }).read().done(function(results) {
-        return results;
-      }, function(err) {
-        return err;
-      });
-    };
+        var getQuestions = function(quizId) {
+            return storageSvc.query("quizzes", "id", {quizId: quizId});
 
-    return {
-      addQuestion: addQuestion,
-      getQuestions: getQuestions
-    }
-  };
+            var quizTable = storageSvc.getEntity("quizzes");
 
-  var module = angular.module("itilxApp");
-  module.factory("adminSvc", adminSvc);
+            var query = quizTable.select("id").where({
+                quizId: quizId
+            }).read().done(function(results) {
+                return results;
+            }, function(err) {
+                return err;
+            });
+        };
 
+        return {
+            addQuestion: addQuestion,
+            getQuestions: getQuestions
+        }
+    }]);
 })();

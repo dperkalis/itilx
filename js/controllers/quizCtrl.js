@@ -21,11 +21,18 @@
         $scope.$apply();
       }
 
-      quizSvc.initQuiz(quizId).then(function() {
-        quizSvc.getQuestion().then(function(data) {
-          reset(data);
-        });
+      quizSvc.initQuiz(quizId).then(function(data) {
+          quizSvc.getQuestion().then(function(data) {
+              $scope.showNext = false;
+              $scope.showFinish = false;
+              $scope.formdata = {};
+              $scope.answerResponse = {};
+              $scope.question = data;
+              $scope.$apply();
+          });
       });
+
+
 
 
       $scope.getQuestion = function() {
@@ -54,11 +61,8 @@
       };
 
       $scope.restartQuiz = function() {
-        quizSvc.initQuiz(quizId).then(function() {
-          quizSvc.getQuestion().then(function(data) {
-            reset(data);
-          });
-        });
+        quizSvc.initQuiz(quizId);
+          quizSvc.getQuestion();
 
       };
     }
