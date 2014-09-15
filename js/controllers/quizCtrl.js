@@ -32,9 +32,6 @@
           });
       });
 
-
-
-
       $scope.getQuestion = function() {
         quizSvc.getQuestion().then(function(data) {
           $scope.showNext = false;

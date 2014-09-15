@@ -1,28 +1,6 @@
-<h1>Add a Question</h1>
-<div>
-<label>Question Text:</label>
-<input type="text" maxlength="50" ng-model="question" />
+<div ng-controller="addQuizCtrl">
+    <div ng-include="'partial/addQuiz.html'"></div>
+    <div ng-include="'partial/addQuestions.html'" ng-show="showQuestions"></div>
 </div>
 
-<div >
-<label>Answer Text:</label>
-<input type="text" maxlength="50" ng-model="answer1"/>
-</div>
-<div >
-<label>Answer Text:</label>
-<input type="text" maxlength="50" ng-model="answer2"/>
-</div>
-<div >
-<label>Answer Text:</label>
-<input type="text" maxlength="50" ng-model="answer3"/>
-</div>
-<div >
-<label>Answer Text:</label>
-<input type="text" maxlength="50" ng-model="answer4"/>
-</div>
 
-<ul ng-repeat="q in questions">
-<li>{{q[0].id}}</li>
-</ul>
-
-<input type="button" ng-click="addQuestion()"/>

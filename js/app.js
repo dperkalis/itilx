@@ -10,7 +10,7 @@ itilxApp.config(['$routeProvider',
         templateUrl: 'views/quiz.html',
         controller: 'quizCtrl'
       }).
-      when('/admin/:quizId', {
+      when('/admin/:quizid?', {
         templateUrl: 'views/admin.html',
         controller: 'adminCtrl'
       }).

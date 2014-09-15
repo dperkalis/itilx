@@ -1,0 +1,32 @@
+
+<h1>Add a Question</h1>
+<div>
+    <label>Question Text:</label>
+    <input type="text" maxlength="50" ng-model="question.questionText" />
+</div>
+
+<div >
+    <label>Answer Text:</label>
+    <input type="text" maxlength="50" ng-model="question.answer1"/>
+</div>
+<div >
+    <label>Answer Text:</label>
+    <input type="text" maxlength="50" ng-model="question.answer2"/>
+</div>
+<div >
+    <label>Answer Text:</label>
+    <input type="text" maxlength="50" ng-model="question.answer3"/>
+</div>
+<div >
+    <label>Answer Text:</label>
+    <input type="text" maxlength="50" ng-model="question.answer4"/>
+</div>
+
+
+
+<input type="button" ng-click="addQuestion()"/>
+
+
+<ul ng-repeat="q in questions">
+    <li>{{q.questionText}} <a href="" ng-click="deleteQuestion(q.id)">DEL</a></li>
+</ul>
