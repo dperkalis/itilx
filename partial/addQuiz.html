@@ -1,5 +1,6 @@
 <div>
-<input type="text" ng-model="quiz.quizName" maxlength="50" />
-<input type="text" ng-model="quiz.quizDescription" maxlength="100"/>
-<input type="button" ng-click="addQuiz()" /> <a href="" ng-click="deleteQuiz(quizid)">DEL</a>
+    <input type="text" ng-model="quiz.quizName" maxlength="50"/>
+    <input type="text" ng-model="quiz.quizDescription" maxlength="100"/>
+    <input type="button" ng-click="addQuiz()" value="Add Quiz"/> <input type="button" ng-click="deleteQuiz(quizid)"
+                                                                        ng-show="showDelete" value="Delete Quiz"/>
 </div>
